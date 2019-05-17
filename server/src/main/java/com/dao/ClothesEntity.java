@@ -9,6 +9,8 @@ import java.util.ArrayList;
 @Entity
 @Table(name = "clothes")
 public class ClothesEntity implements Clothes, Serializable {
+    private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue
     private Long id;

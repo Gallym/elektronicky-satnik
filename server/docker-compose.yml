@@ -1,0 +1,29 @@
+version: '3.5'
+
+services:
+  server:
+    build: .
+    ports:
+      - '8080:8080'
+    depends_on:
+      - db
+    volumes:
+      - maven-cache:/root/.m2
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: el_sat_app
+    volumes: 
+      - ./db/data.sql:/docker-entrypoint-initdb.d/data.sql
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  maven-cache:
+  mysql-data:

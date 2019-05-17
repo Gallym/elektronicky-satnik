@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface ClothesRepository extends CrudRepository<ClothesEntity, Long> {
     @Override
     List<ClothesEntity> findAll();
-    @Override
-    Optional<ClothesEntity> findById(Long id);
+
+    Optional<ClothesEntity> findById(long id);
 
 }
